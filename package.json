@@ -4,7 +4,9 @@
   "description": "graphql server",
   "main": "server.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "nodemon server.js",
+    "dev": "nodemon server.js --exec babel-node -e js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,16 @@
   "bugs": {
     "url": "https://github.com/emukupa/graphql-server/issues"
   },
-  "homepage": "https://github.com/emukupa/graphql-server#readme"
+  "homepage": "https://github.com/emukupa/graphql-server#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "nodemon": "^1.18.10"
+  }
 }
