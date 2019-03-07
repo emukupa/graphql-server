@@ -1,31 +1,49 @@
 import { buildSchema } from 'graphql';
-
+// String, Float, Int, Boolean
 const schema = buildSchema(`
-  type Hobby {
-    hobby : String
+  type Contact {
+    firstName: String
+    lastName: String
+  }
+
+  enum Gender {
+    MALE
+    FEMALE
+    UNSPECIFIED
   }
 
   type Friend {
     id: ID 
-    firstname: String 
-    lastname: String
-    gender: String 
+    firstName: String 
+    lastName: String
+    gender: Gender 
+    age: Int
     language: String 
     email: String
-    hobbies: [Hobby]
+    contacts: [Contact]
+    hobbies: [String]
   }
 
   type Query { 
-    friend: Friend
+    getFriend(id: ID): Friend
+    friends: Friend
+  }
+
+  input ContactInput {
+    firstName: String
+    lastName: String
   }
 
   input FriendInput{
     id: ID 
-    firstname: String! 
-    lastname: String
-    gender: String 
+    firstName: String! 
+    lastName: String
+    gender: Gender 
+    age: Int
     language: String 
     email: String
+    hobbies: [String]
+    contacts: [ContactInput]
   }
 
   type Mutation{
